@@ -1,14 +1,13 @@
-# Next.js with Storybook Project
+# Spotify Music Recommendation System
 
 
-This project serves as an example of how to organize code effectively using Next.js along with Storybook. It demonstrates the usage of Storybook in a Next.js project for developing and showcasing UI components.
-
+The project serves as a UI for the Music recommendation system using Spotify dataset
 
 ## Installation
 To get started, clone this repository and navigate to the project directory:
 
 ```git clone <repository-url>
-cd nextjs-storybook
+cd spotify-recc-ui
 ```
 
 ## Install the dependencies:
@@ -31,7 +30,7 @@ The project is organized to maintain a clean and scalable codebase. Here's an ov
 ```
 nextjs-storybook/
 ├── components/          # Common reusable components
-├── hooks/                # Next.js page components
+├── hooks/               # Next.js page components
 ├── stories/             # Storybook stories for components
 ├── .storybook/          # Storybook configuration
 ├── utils /              # Static files
