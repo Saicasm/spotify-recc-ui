@@ -13,7 +13,7 @@ const Test = () => {
 
   return (
     <RootLayout>
-     <main className='flex min-h-screen flex-col items-center justify-between p-24 bg-light-bg-primary '>
+     <main className='flex min-h-screen flex-col items-center justify-between p-24  '>
     
     <Button onClick={handleClick} variant='primary'>
       Primary Button
