@@ -13,25 +13,8 @@ const Test = () => {
 
   return (
     <RootLayout>
-     <main className='flex min-h-screen flex-col items-center justify-between p-24  '>
+     <main className='flex  flex-col items-center justify-between p-24  '>
     
-    <Button onClick={handleClick} variant='primary'>
-      Primary Button
-    </Button>
-    <Button onClick={handleClick} variant='secondary'>
-      Secondary Button
-    </Button>
-    {/* <Button onClick={handleClick} className='bg-blue-500'>
-      Custom variant Button
-    </Button> */}
-    {/* <div>
-      <CustomSelect
-        options={options}
-        onChange={handleChange}
-        placeholder='Select an option'
-        className='border-red-500 dark:accent-primary' // Example of additional Tailwind classes for customization
-      />
-    </div> */}
   </main>
     </RootLayout>
   );
