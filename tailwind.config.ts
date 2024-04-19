@@ -35,7 +35,7 @@ const config: Config = {
             secondary: "black",
           },
           accent: {
-            primary: "#C2DFE3",
+            primary: "#FFFFFF",
             secondary: "#120D31",
           },
           border: {
