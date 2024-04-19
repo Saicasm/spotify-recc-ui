@@ -22,7 +22,7 @@ const config: Config = {
           },
           accent: {
             primary: "#C2DFE3",
-            secondary: "#120D31",
+            secondary: "#FFFFFF",
           },
         },
         light: {
@@ -39,7 +39,7 @@ const config: Config = {
             secondary: "#120D31",
           },
           border: {
-            primary: "#f5f4f5",
+            primary: "#9c9c9c",
             secondary: "bg-gray-500",
           },
         },
