@@ -27,8 +27,8 @@ const config: Config = {
         },
         light: {
           bg: {
-            primary: "#EEF0F3",
-            secondary: "#F3F5F3",
+            primary: "#EFEFEF",
+            secondary: "#EFEFEF",
           },
           text: {
             primary: "white",
@@ -39,7 +39,7 @@ const config: Config = {
             secondary: "#120D31",
           },
           border: {
-            primary: "#7F878C",
+            primary: "#f5f4f5",
             secondary: "bg-gray-500",
           },
         },
