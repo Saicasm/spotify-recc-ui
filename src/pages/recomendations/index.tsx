@@ -16,7 +16,7 @@ const Recommendation = () => {
   return (
     <RootLayout>
       <div className="flex  flex-col items-start justify-evenly p-8 	space-y-10 ">
-        <SelectSongs title="Song Selection and Recommendations" />
+        <SelectSongs title="Song Selection and Recommendations"  songsList={["Song1","Song2"]}/>
         <UploadPlaylist title="Upload Playlist" />
         <DisplaySongs title="Display Content" />
       </div>
