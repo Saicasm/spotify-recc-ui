@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import Image from 'next/image';
 import Button from "../Button/Button";
 import SearchBar from "../Search/Search";
-
+import MusicIon from "../../../public/music.svg";
+import  UserIcon  from "../../../public/user.svg";
 interface HeaderProps {
   /**
    * The Title of the APP
@@ -32,6 +34,21 @@ const SearchComponent = () => {
     </div>
   );
 };
+
+
+const UserProfile = () => {
+  return (
+    <div className="pr-2">
+
+  <Image
+      priority
+      src={UserIcon}
+      height={32}
+      width={32}
+      alt="User Settings"
+    />    </div>
+  );
+}
 const Header: React.FC<HeaderProps> = ({
   title = "Musicfic",
   className = "",
@@ -39,14 +56,26 @@ const Header: React.FC<HeaderProps> = ({
   //TODO: Added General Layout of the header, need to finish it
   return (
     <div className="h-16 border-b-2 border-black flex flex-row justify-between items-center">
-      <div className="">{title}</div>
+      <div className="flex">
+      <Image
+      priority
+      src={MusicIon}
+      height={32}
+      width={32}
+      alt="MusicFic Icon"
+    />
+      <div className="h2 pl-2 font-bold	" > 
+    
+    {title}</div>
+      </div>
+    
       <div className="w-60 flex flex-row items-center justify-between">
         <SearchComponent />
         <div className="">
           <Button variant="primary">Search</Button>
         </div>
       </div>
-      <div className="w-25 text-right">User Profile</div>
+      <UserProfile />
     </div>
   );
 };

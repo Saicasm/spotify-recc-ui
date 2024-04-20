@@ -53,13 +53,6 @@ const SearchBar: React.FC<SearchBarProps> = ({
               {item}
             </div>
           ))}
-          <div
-            onClick={() => handleDropdownItemClick("Item 2")}
-            className="py-2 px-4 hover:bg-gray-100 cursor-pointer"
-          >
-            Item 2
-          </div>
-          {/* Add more dropdown items as needed */}
         </div>
       )}
     </div>
