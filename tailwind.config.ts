@@ -40,7 +40,7 @@ const config: Config = {
           },
           border: {
             primary: "#9c9c9c",
-            secondary: "bg-gray-500",
+            secondary: "#959696",
           },
         },
       },
