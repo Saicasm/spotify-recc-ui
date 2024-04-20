@@ -21,11 +21,11 @@ const RootLayout : React.FC<RootLayoutProps> = ({
 children
 }) => {
   return (
-    <div className="flex flex-col min-h-screen mx-auto bg-opacity-90 bg-light-bg-primary">
-      <div >
+    <div className=" min-h-screen mx-auto bg-opacity-90 bg-light-bg-primary">
+  
         <Header  title="Musicfic"/>
-        <main >{children}</main>
-      </div>
+        <main className="max-h-full" >{children}</main>
+    
       {/* <Footer /> */}
     </div>
   );
