@@ -72,7 +72,7 @@ const Header: React.FC<HeaderProps> = ({
           width={32}
           alt="MusicFic Icon"
         />
-        <div className="h2 pl-2 font-bold	">{title}</div>
+        <div className="h2 pl-2 font-bold	font-mono ">{title}</div>
       </div>
       <div className="w-60 flex flex-row items-center justify-between">
         <SearchComponent />

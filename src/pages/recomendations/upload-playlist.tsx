@@ -23,10 +23,9 @@ const UploadPlaylist: React.FC<UploadPlaylistProps> = ({
 
   return (
   
-     <main className='flex   '>
-      <div className="flex">
-        <div className="h2 pl-2 font-bold	">{title}</div>
-      </div>
+     <main className='flex flex-col justify-end space-y-6'>
+        <div className="h2 font-mono text-xl">{title}</div>
+           <Button className="py-4" onClick={ handleClick} variant={"primary"}> Upload Playlist</Button>   
   </main>
   
   );
