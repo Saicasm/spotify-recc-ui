@@ -25,7 +25,7 @@ const DisplaySongs: React.FC<DisplaySongsProps> = ({
   
      <main className='flex  '>
       <div className="flex">
-        <div className="h2 pl-2 font-bold	">{title}</div>
+        <div className="h2   font-mono	text-xl	">{title}</div>
       </div>
   </main>
   

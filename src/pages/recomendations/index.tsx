@@ -15,11 +15,11 @@ const Recommendation = () => {
 
   return (
     <RootLayout>
-      <main className="flex  flex-col items-start justify-evenly p-8  ">
-        <SelectSongs title="Song Selection" />
+      <div className="flex  flex-col items-start justify-evenly p-8 	space-y-10 ">
+        <SelectSongs title="Song Selection and Recommendations" />
         <UploadPlaylist title="Upload Playlist" />
         <DisplaySongs title="Display Content" />
-      </main>
+      </div>
     </RootLayout>
   );
 };
