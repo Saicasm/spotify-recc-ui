@@ -1,7 +1,6 @@
 import Button from "@/components/Button/Button";
 import { useState } from "react";
-import Card from "@/components/Card/Card";
-import RootLayout from "@/app/layout";
+import Chips from "@/components/Chips/Chips";
 interface SelectSongProps {
   /**
    * The Title of the APP
@@ -11,11 +10,16 @@ interface SelectSongProps {
    * Additional classes to be added to the Header
    */
   className?: string;
+  /**
+   * List of songs
+   */
+  songsList?: string[];
 }
 
 const SelectSongs: React.FC<SelectSongProps> = ({
   title = "Song Selection and Rec",
   className = "",
+  songsList = [],
 }) => {
   function handleClick(): void {
     throw new Error("Function not implemented.");
@@ -24,15 +28,15 @@ const SelectSongs: React.FC<SelectSongProps> = ({
   return (
     <>
       <div className="">
-        <div className="h2 font-mono text-xl	">{title}</div>
+        <div className="h2 font-mono text-xl">{title}</div>
       </div>
-      <div className="flex space-x-2 justify-center items-center">
-        <div>Select a song</div>
-        <div>Song 1</div>
-        <div>Song 2</div>
-        <div>Song 3</div>
-        <Button className="" onClick={ handleClick} variant={"primary"}> Generate</Button>   
-
+      <div className="flex font-mono space-x-2 justify-center items-center">
+        <div>Selected songs:</div>
+        {songsList?.map((item, index) => <Chips name={item} key={index} />)}
+        <Button className="" onClick={handleClick} variant={"primary"}>
+          {" "}
+          Generate
+        </Button>
       </div>
     </>
   );

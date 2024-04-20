@@ -34,13 +34,13 @@ const SearchBar: React.FC<SearchBarProps> = ({
   };
 
   return (
-    <div className="relative">
+    <div className="relative font-mono">
       <input
         type="text"
         placeholder={placeholder}
         value={query}
         onChange={handleInputChange}
-        className="py-2 px-4 rounded-lg border outline-none focus:border-light-border-primary  w-60"
+        className="py-2 px-4 rounded-sm  border outline-none focus:border-light-border-primary  w-60"
       />
       {isOpen && (
         <div className="absolute top-full left-0 w-full bg-light-bg-secondary border border-gray-200 rounded-lg shadow-md mt-2">
