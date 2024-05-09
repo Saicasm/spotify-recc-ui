@@ -1,10 +1,12 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState, createContext, useContext } from "react";
 import Image from "next/image";
 import Button from "../Button/Button";
 import SearchBar from "../Search/Search";
 import MusicIon from "../../../public/music.svg";
 import UserIcon from "../../../public/user.svg";
+import { getSongsForSearch } from "@/api/recommendations";
+
 interface HeaderProps {
   /**
    * The Title of the APP
@@ -15,29 +17,53 @@ interface HeaderProps {
    */
   className?: string;
 }
+
+interface SearchComponentProps {
+  artist_name: string;
+  _id: string;
+  track_name: string;
+  trackId: string;
+}
+
 const SearchComponent = () => {
   const [searchInput, setSearchInput] = useState("");
-  const [dropdownItems, setDropdownItems] = useState([
-    "Search 1",
-    "Search 2",
-  ] as string[]);
+
+  const [dropdownItems, setDropdownItems] = useState<SearchComponentProps[]>(
+    []
+  );
+  const [selectedItems, setSelectedItems] = useState<SearchComponentProps[]>(
+    []
+  );
   const handleSearchQueryChange = (query: string) => {
     setSearchInput(query);
-    getSearchDropdownItem(query);
-    console.log("Search Query:", query);
+    getSearchDropdownItem(searchInput);
   };
-  const handleSearchSelect = (query: string) => {
-    setSearchInput(query);
+
+  const handleSearchSelect = (item: SearchComponentProps) => {
+    setSelectedItems([...selectedItems, item]);
   };
-  const getSearchDropdownItem = (query: string) => {
-    //TODO: Make an API call to get the dropdown items
+  const getSearchDropdownItem = async (query: string) => {
+    try {
+      const dropdownData = await getSongsForSearch(query);
+      setDropdownItems(dropdownData);
+    } catch (error) {
+      console.error("Error fetching user:", error);
+    }
   };
+
+  useEffect(() => {
+    localStorage.setItem("selectedItems", JSON.stringify(selectedItems));
+    window.dispatchEvent(
+      new CustomEvent("localStorageUpdated", { detail: selectedItems })
+    );
+  }, [selectedItems]);
   return (
-    <div className="	">
+    <div className="">
       <SearchBar
         placeholder="Search Songs"
         onSearchQueryChange={handleSearchQueryChange}
         items={dropdownItems}
+        displayKey="track_name"
         onSearchSelect={handleSearchSelect}
       />
     </div>
@@ -77,7 +103,7 @@ const Header: React.FC<HeaderProps> = ({
       <div className="w-60 flex flex-row items-center justify-between">
         <SearchComponent />
         <div className="">
-          <Button variant="primary">Search</Button>
+          {/* <Button variant="primary">Search</Button> */}
         </div>
       </div>
       <UserProfile />

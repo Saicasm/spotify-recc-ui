@@ -1,0 +1,9 @@
+version: '3.9'
+
+services:
+  spotify-rec:
+    container_name: spotify-rec
+    image: spotify-rec
+    build: .
+    ports:
+      - "3000:3000"
