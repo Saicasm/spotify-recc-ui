@@ -1,6 +1,13 @@
 import Button from "@/components/Button/Button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Chips from "@/components/Chips/Chips";
+import { getRecommendations } from "@/api/recommendations";
+interface SearchComponentProps {
+  artist_name: string;
+  _id: string;
+  track_name: string;
+  trackId: string;
+}
 interface SelectSongProps {
   /**
    * The Title of the APP
@@ -13,26 +20,41 @@ interface SelectSongProps {
   /**
    * List of songs
    */
-  songsList?: string[];
+  songsList?: SearchComponentProps[];
+  onGenerateRecommendations?: (items: SearchComponentProps[]) => void;
 }
 
 const SelectSongs: React.FC<SelectSongProps> = ({
   title = "Song Selection and Rec",
   className = "",
   songsList = [],
+  onGenerateRecommendations,
 }) => {
-  function handleClick(): void {
-    throw new Error("Function not implemented.");
-  }
+  const [recommendations, setRecommendations] = useState<
+    SearchComponentProps[]
+  >([]);
+  const handleClick = async () => {
+    if (songsList.length > 0) {
+      try {
+        const result = await getRecommendations(songsList);
+        await setRecommendations(result);
+        await onGenerateRecommendations?.(result);
+      } catch (error) {
+        console.error("Error fetching user:", error);
+      }
+    }
+  };
 
   return (
     <>
       <div className="">
         <div className="h2 font-mono text-xl">{title}</div>
       </div>
-      <div className="flex font-mono space-x-2 justify-center items-center">
+      <div className="flex font-mono space-x-2 justify-center items-center flex-wrap">
         <div>Selected songs:</div>
-        {songsList?.map((item, index) => <Chips name={item} key={index} />)}
+        {songsList?.map((item, index) => (
+          <Chips name={item.track_name} key={index} />
+        ))}
         <Button className="" onClick={handleClick} variant={"primary"}>
           {" "}
           Generate
