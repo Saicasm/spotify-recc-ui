@@ -1,5 +1,3 @@
-
-
 interface geRecommendationsProps {
     /**
      * The Title of the APP

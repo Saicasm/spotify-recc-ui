@@ -1,7 +1,7 @@
 "use client";
 
-import Button from "@/components/Button/Button";
 import Card from "@/components/Card/Card";
+import React from "react";
 import { useState } from "react";
 interface SearchComponentProps {
   artist_name: string;
@@ -18,7 +18,7 @@ interface DisplaySongsProps {
    * Additional classes to be added to the Header
    */
   className?: string;
-  recommendations?: any;
+  recommendations?: SearchComponentProps[];
 }
 
 const DisplaySongs: React.FC<DisplaySongsProps> = ({
