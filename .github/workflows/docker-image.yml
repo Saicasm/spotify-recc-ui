@@ -13,8 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Dynamic Build Docker Image
-      uses: flownative/action-docker-build@v1.8.0
+
             
     - uses: actions/checkout@v4
     - name: Build the Docker image
