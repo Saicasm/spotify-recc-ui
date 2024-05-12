@@ -37,8 +37,11 @@ const SelectSongs: React.FC<SelectSongProps> = ({
     if (songsList.length > 0) {
       try {
         const result = await getRecommendations(songsList);
-        await setRecommendations(result);
-        await onGenerateRecommendations?.(result);
+        const jsonArrayString = result;
+        const jsonArray = JSON.parse(jsonArrayString);
+        console.log("jsonArray", jsonArray);
+        await setRecommendations(jsonArray);
+        await onGenerateRecommendations?.(jsonArray);
       } catch (error) {
         console.error("Error fetching user:", error);
       }
