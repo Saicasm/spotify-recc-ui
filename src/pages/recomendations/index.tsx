@@ -45,7 +45,6 @@ const Recommendation = () => {
           songsList={selectedItems}
           onGenerateRecommendations={handleSearchQueryChange}
         />
-        <UploadPlaylist title="Upload Playlist" />
         <DisplaySongs
           title="Display Content"
           recommendations={recommendedItems}

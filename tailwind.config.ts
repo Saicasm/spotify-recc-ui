@@ -13,7 +13,7 @@ const config: Config = {
       colors: {
         dark: {
           bg: {
-            primary: "#272727",
+            primary: "#f6f5f0",
             secondary: "bg-gray-100",
           },
           text: {
